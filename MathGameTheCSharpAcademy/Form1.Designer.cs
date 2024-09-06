@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             MainPanel = new Panel();
+            labelHighscore = new Label();
+            label2 = new Label();
             buttonNewGame = new Button();
             label1 = new Label();
             button1 = new Button();
@@ -38,11 +40,35 @@
             // MainPanel
             // 
             MainPanel.BackColor = Color.FromArgb(60, 61, 88);
+            MainPanel.Controls.Add(labelHighscore);
+            MainPanel.Controls.Add(label2);
             MainPanel.Controls.Add(buttonNewGame);
             MainPanel.Location = new Point(0, 50);
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(1173, 641);
             MainPanel.TabIndex = 0;
+            // 
+            // labelHighscore
+            // 
+            labelHighscore.AutoSize = true;
+            labelHighscore.Font = new Font("Segoe UI", 15F);
+            labelHighscore.ForeColor = Color.White;
+            labelHighscore.Location = new Point(985, 12);
+            labelHighscore.Name = "labelHighscore";
+            labelHighscore.Size = new Size(23, 28);
+            labelHighscore.TabIndex = 2;
+            labelHighscore.Text = "0";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 15F);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(875, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(104, 28);
+            label2.TabIndex = 1;
+            label2.Text = "Highscore:";
             // 
             // buttonNewGame
             // 
@@ -55,7 +81,7 @@
             buttonNewGame.Name = "buttonNewGame";
             buttonNewGame.Size = new Size(206, 46);
             buttonNewGame.TabIndex = 0;
-            buttonNewGame.Text = "NOVÁ HRA";
+            buttonNewGame.Text = "NEW GAME";
             buttonNewGame.TextAlign = ContentAlignment.MiddleLeft;
             buttonNewGame.UseVisualStyleBackColor = false;
             buttonNewGame.Click += buttonNewGame_Click;
@@ -102,6 +128,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             MainPanel.ResumeLayout(false);
+            MainPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -112,5 +139,7 @@
         private Label label1;
         private Button buttonNewGame;
         private Button button1;
+        private Label label2;
+        public Label labelHighscore;
     }
 }

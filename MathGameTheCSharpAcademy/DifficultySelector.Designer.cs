@@ -33,6 +33,7 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            button5 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -76,6 +77,7 @@
             button2.Text = "Normal";
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -91,6 +93,7 @@
             button3.Text = "Hard";
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -106,6 +109,23 @@
             button4.Text = "Random";
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.Transparent;
+            button5.Cursor = Cursors.Hand;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 20F);
+            button5.ForeColor = Color.Crimson;
+            button5.Location = new Point(477, 9);
+            button5.Name = "button5";
+            button5.Size = new Size(32, 45);
+            button5.TabIndex = 5;
+            button5.Text = "X";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // DifficultySelector
             // 
@@ -113,6 +133,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 61, 88);
             ClientSize = new Size(521, 344);
+            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -133,5 +154,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Button button5;
     }
 }
