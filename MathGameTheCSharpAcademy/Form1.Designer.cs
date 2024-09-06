@@ -78,11 +78,11 @@
             button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 15F);
+            button1.Font = new Font("Segoe UI", 20F);
             button1.ForeColor = Color.Crimson;
-            button1.Location = new Point(1128, 6);
+            button1.Location = new Point(1128, 1);
             button1.Name = "button1";
-            button1.Size = new Size(32, 38);
+            button1.Size = new Size(32, 45);
             button1.TabIndex = 1;
             button1.Text = "X";
             button1.UseVisualStyleBackColor = false;

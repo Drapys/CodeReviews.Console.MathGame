@@ -16,10 +16,12 @@ namespace MathGameTheCSharpAcademy
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Easy difficulty
+        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
     }
 }
