@@ -22,6 +22,9 @@ namespace MathGameTheCSharpAcademy
         int NumberOfOperation = 0;
 
         int MaxNumberOfOperations = 0;
+
+        int GoodAnswers = 0;
+        int BadAnswers = 0;
         public ActualGame()
         {
             InitializeComponent();
@@ -78,7 +81,7 @@ namespace MathGameTheCSharpAcademy
                 case 0:
                     randomNum1 = 0;
                     randomNum2 = 11;
-                    MaxNumberOfOperations = 20;
+                    MaxNumberOfOperations = 2;
                     break;
                 case 1:
                     randomNum1 = 0;
@@ -190,12 +193,14 @@ namespace MathGameTheCSharpAcademy
                 score++;
                 labelScore.Text = $"score: {score}";
                 labelResultMessage.Text = "Your last answer was correct! Continue with the next one";
+                GoodAnswers++;
             }
             else
             {
                 score--;
                 labelScore.Text = $"score: {score}";
                 labelResultMessage.Text = "Your last answer was wrong :(. Continue with the next one!";
+                BadAnswers++;
             }
             NumberOfOperation++;
 
@@ -210,7 +215,8 @@ namespace MathGameTheCSharpAcademy
                 MessageBox.Show($"Good job! You have finished the challenge, your score was: {score}");
                 Form1 newform = new Form1();
                 newform.Show();
-                newform.labelHighscore.Text = CheckHighScore().ToString(); ;
+                newform.labelHighscore.Text = CheckHighScore().ToString();
+                SaveGameToHistory(newform.listboxHistory);
                 this.Close();
 
 
@@ -219,6 +225,14 @@ namespace MathGameTheCSharpAcademy
             {
                 GenerateOperation(Difficulty);
             }
+        }
+
+        //Saves finished game to a history in main form
+        void SaveGameToHistory(ListBox l)
+        {
+            string GameScoreHistory = $"Score: {score} Questions: {GoodAnswers}/{GoodAnswers+BadAnswers}";
+            l.Items.Add(GameScoreHistory);
+            
         }
 
 

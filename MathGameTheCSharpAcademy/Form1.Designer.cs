@@ -34,12 +34,16 @@
             buttonNewGame = new Button();
             label1 = new Label();
             button1 = new Button();
+            listboxHistory = new ListBox();
+            label3 = new Label();
             MainPanel.SuspendLayout();
             SuspendLayout();
             // 
             // MainPanel
             // 
             MainPanel.BackColor = Color.FromArgb(60, 61, 88);
+            MainPanel.Controls.Add(label3);
+            MainPanel.Controls.Add(listboxHistory);
             MainPanel.Controls.Add(labelHighscore);
             MainPanel.Controls.Add(label2);
             MainPanel.Controls.Add(buttonNewGame);
@@ -114,6 +118,28 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // listboxHistory
+            // 
+            listboxHistory.BackColor = Color.FromArgb(60, 61, 78);
+            listboxHistory.BorderStyle = BorderStyle.None;
+            listboxHistory.ForeColor = Color.White;
+            listboxHistory.FormattingEnabled = true;
+            listboxHistory.ItemHeight = 15;
+            listboxHistory.Location = new Point(847, 165);
+            listboxHistory.Name = "listboxHistory";
+            listboxHistory.Size = new Size(313, 345);
+            listboxHistory.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15F);
+            label3.Location = new Point(847, 134);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 28);
+            label3.TabIndex = 4;
+            label3.Text = "label3";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -141,5 +167,7 @@
         private Button button1;
         private Label label2;
         public Label labelHighscore;
+        private Label label3;
+        public ListBox listboxHistory;
     }
 }
