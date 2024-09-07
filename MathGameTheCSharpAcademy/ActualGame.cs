@@ -90,7 +90,7 @@ namespace MathGameTheCSharpAcademy
                     randomNum2 = 101;
                     MaxNumberOfOperations = 100;
                     break;
-                    case 3:
+                case 3:
                     randomNum1 = 0;
                     randomNum2 = random.Next(10, 101);
                     break;
@@ -107,33 +107,56 @@ namespace MathGameTheCSharpAcademy
             string operatorSymbol = "";
             double result = 0;
 
-            switch (operation)
+
+
+            if(operation == 3)
             {
-                case 0:
-                    operatorSymbol = "+";
-                    result = num1 + num2;
-                    break;
-                case 1:
-                    operatorSymbol = "-";
-                    result = num1 - num2;
-                    break;
-                case 2:
-                    operatorSymbol = "*";
-                    result = num1 * num2;
-                    break;
-                case 3:
-                    operatorSymbol = "/";
-                    // Avoid division by zero
-                    if (num2 == 0)
-                    {
+                // Generate a random dividend from 0 to 100 and a divisor between 1 and 10
+                int dividend = random.Next(0, 101);
+                int divisor;
+
+                // Ensure divisor is not zero and results in an integer division
+                do
+                {
+                    divisor = random.Next(1, 11); // Divisor between 1 and 10
+                } while (dividend % divisor != 0); // Ensure integer result
+
+                num1 = dividend;
+                num2 = divisor;
+                operatorSymbol = "/";
+                result = num1 / num2;
+            }
+            else
+            {
+
+                switch (operation)
+                {
+                    case 0:
                         operatorSymbol = "+";
-                        result = num1 + num2; // Fallback to addition if division by zero
-                    }
-                    else
-                    {
-                        result = (double)num1 / num2;
-                    }
-                    break;
+                        result = num1 + num2;
+                        break;
+                    case 1:
+                        operatorSymbol = "-";
+                        result = num1 - num2;
+                        break;
+                    case 2:
+                        operatorSymbol = "*";
+                        result = num1 * num2;
+                        break;
+                    case 3:
+                        operatorSymbol = "/";
+                        // Avoid division by zero
+                        if (num2 == 0)
+                        {
+                            operatorSymbol = "+";
+                            result = num1 + num2; // Fallback to addition if division by zero
+                        }
+                        else
+                        {
+                            result = (double)num1 / num2;
+                        }
+                        break;
+                }
             }
 
             // Display the generated operation
@@ -157,12 +180,12 @@ namespace MathGameTheCSharpAcademy
             {
                 double.TryParse(textBox1.Text, out answer);
             }
-            catch(FormatException formatException)
+            catch (FormatException formatException)
             {
                 MessageBox.Show($"Your answer was in false format, please enter a valid number. Exception message: {formatException.Message}");
             }
             //Compares the answers and gives a result
-            if(answer == Answer)
+            if (answer == Answer)
             {
                 score++;
                 labelScore.Text = $"score: {score}";
@@ -182,14 +205,14 @@ namespace MathGameTheCSharpAcademy
         //Compares the number of current operation to a max number of operation based on difficulty
         void CheckNumberOfOperations(int max)
         {
-            if(max == MaxNumberOfOperations)
+            if (max == MaxNumberOfOperations)
             {
                 MessageBox.Show($"Good job! You have finished the challenge, your score was: {score}");
                 Form1 newform = new Form1();
                 newform.Show();
                 newform.labelHighscore.Text = CheckHighScore().ToString(); ;
                 this.Close();
-                
+
 
             }
             else
