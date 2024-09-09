@@ -12,7 +12,10 @@ using System.Windows.Forms;
 namespace MathGameTheCSharpAcademy
 {
     public partial class ActualGame : Form
+
     {
+
+        public Form1? fs = null;
         public int Difficulty { get; set; } = DifficultySelector.difficulty;
 
         double Answer { get; set; } = 0;
@@ -25,8 +28,9 @@ namespace MathGameTheCSharpAcademy
 
         int GoodAnswers = 0;
         int BadAnswers = 0;
-        public ActualGame()
+        public ActualGame(Form1 form1)
         {
+            fs = form1;
             InitializeComponent();
             SetTitle();
             GenerateOperation(Difficulty);
@@ -213,12 +217,16 @@ namespace MathGameTheCSharpAcademy
             if (max == MaxNumberOfOperations)
             {
                 MessageBox.Show($"Good job! You have finished the challenge, your score was: {score}");
-                Form1 newform = new Form1();
-                newform.Show();
-                newform.labelHighscore.Text = CheckHighScore().ToString();
-                SaveGameToHistory(newform.listboxHistory);
+                fs.Show();
+                fs.Enabled = true;
+                fs.Visible = true;
+                fs.labelHighscore.Text = CheckHighScore().ToString();
+                SaveGameToHistory(fs.listboxHistory);
                 this.Close();
 
+
+
+             
 
             }
             else

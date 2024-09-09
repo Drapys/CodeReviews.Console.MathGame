@@ -32,7 +32,7 @@ namespace MathGameTheCSharpAcademy
         {
             this.Enabled = false;
             this.Visible = false;
-            DifficultySelector ds = new();
+            DifficultySelector ds = new(this);
             ds.Show();
             
         }

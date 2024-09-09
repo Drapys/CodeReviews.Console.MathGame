@@ -14,8 +14,12 @@ namespace MathGameTheCSharpAcademy
     public partial class DifficultySelector : Form
     {
         public static int difficulty {get;set;}
-        public DifficultySelector()
+
+
+        public Form1? fss = null;
+        public DifficultySelector(Form1 fs)
         {
+            fss = fs;
             InitializeComponent();
         }
         public enum Difficulty
@@ -31,8 +35,10 @@ namespace MathGameTheCSharpAcademy
         /// <param name="dif"></param>
         void StartGame(int dif)
         {
+        
 
-            ActualGame ag = new();
+
+            ActualGame ag = new(fss);
             difficulty = ((int)dif);
             ag.Show();
             this.Close();
